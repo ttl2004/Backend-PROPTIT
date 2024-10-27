@@ -589,9 +589,8 @@ if __name__ == "__main__":
     players_data = []
     players_data = Crawl_Data_For_Each_Team(players_data, team_data)
     
-    # palyer_data = read_csv(players_data)
-
-    players_data = sorted(players_data, key=lambda x: (x[0], -int(x[4])))
+    # Sắp xếp dữ liệu theo first name và tuổi giảm dần
+    players_data = sorted(players_data, key=lambda x: (x[0].split()[0], -int(x[4])))
 
 
 
@@ -608,5 +607,5 @@ if __name__ == "__main__":
                                                      "PTime_Starts", "PTime_Mn/Start", "PTime_Compl", "PTime_Subs", "PTime_Mn/Sub", "PTime_unSub", "PTime_PPM", "PTime_onG", "PTime_onGA", "PTime_onxG", "PTime_onxGA",
                                                      "MStats_Fls", "MStats_Fld", "MStats_Off", "MStats_Crs", "MStats_OG", "MStats_Recov", "MStats_Won", "MStats_Lost", "MStats_Won%"
                                                      ])
-    df_players.to_csv("F:/Python BTL/Players_tmp.csv", index=False, encoding='utf-8-sig')
-    print("<-----------------Đã lưu thông tin các cầu thủ vào file Players.csv-------------------->")
+    df_players.to_csv("results.csv", index=False, encoding='utf-8-sig')
+    print("<-----------------Đã lưu thông tin các cầu thủ vào file results.csv-------------------->")
